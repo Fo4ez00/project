@@ -22,7 +22,6 @@ const LoginPage = ({ onLogin }) => {
         <h4>Welcome! Please start by telling us your name:</h4>
 
         <form onSubmit={handleLogin}>
-          <label htmlFor="username"></label>
           <input
             type="text"
             id="username"
