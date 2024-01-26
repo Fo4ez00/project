@@ -1,29 +1,26 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #DAA520; 
-  }
-  
-  .search-input {
-    margin-left: auto; 
-    padding: 8px; 
-    border: 1px solid #ccc; 
-    color: yellow;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #daa520;
+}
 
+.search-input {
+  margin-left: auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  color: yellow;
+}
 
+main {
+  text-align: center;
+}
 
-  
-  main {
-    text-align: center;
-  }
-  
-  form {
-    margin-top: 50px; 
-  }
+form {
+  margin-top: 50px;
+}
 
-  h1.text {
-    color: yellow;
-  }
+h1.text {
+  color: yellow;
+}
