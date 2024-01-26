@@ -7,9 +7,10 @@ header {
   }
   
   .search-input {
-    margin-left: auto; /* Pushes the search input to the right */
-    padding: 8px; /* Optional: Adjust the padding for styling */
-    border: 1px solid #ccc; /* Optional: Add a border for styling */
+    margin-left: auto; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    color: yellow;
   }
 
 
@@ -20,9 +21,9 @@ header {
   }
   
   form {
-    margin-top: 50px; /* Adjust this value to move the form higher on the page */
+    margin-top: 50px; 
   }
 
   h1.text {
-    color: #DAA520;
+    color: yellow;
   }

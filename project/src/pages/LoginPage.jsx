@@ -5,7 +5,7 @@ const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
 
   const handleLogin = (event) => {
-    event.preventDefault(); // Prevents the form from submitting and page refreshing
+    event.preventDefault(); 
     onLogin(username);
     console.log("Logged in as:", username);
   };
