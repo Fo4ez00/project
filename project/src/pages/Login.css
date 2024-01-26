@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #DAA520; 
+  }
+  
+  .search-input {
+    margin-left: auto; /* Pushes the search input to the right */
+    padding: 8px; /* Optional: Adjust the padding for styling */
+    border: 1px solid #ccc; /* Optional: Add a border for styling */
+  }
+
+
+
+  
+  main {
+    text-align: center;
+  }
+  
+  form {
+    margin-top: 50px; /* Adjust this value to move the form higher on the page */
+  }
+
+  h1.text {
+    color: #DAA520;
+  }
