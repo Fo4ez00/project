@@ -13,11 +13,11 @@ const Menu = () => {
           "https://react-fast-pizza-api.onrender.com/api/menu"
         );
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error("Ошибка");
         }
 
         const data = await response.json();
-        console.log("API Response:", data);
+        console.log("API ответ:", data);
         dispatch(fetchSuccess(data));
       } catch (error) {
         dispatch(fetchError(error.message));
@@ -28,7 +28,7 @@ const Menu = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("Menu Data:", menuData);
+    console.log("Data:", menuData);
   }, [menuData, error]);
 
   return (
