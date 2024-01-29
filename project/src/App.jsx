@@ -17,7 +17,6 @@ const App = () => {
        {user && <Header user={user} />}
       <Routes>
         <Route path="/" element={user ? <Menu /> : <LoginPage onLogin={handleLogin} />} />
-        
       </Routes>
     </Router>
   );
