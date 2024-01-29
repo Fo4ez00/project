@@ -1,15 +1,23 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
+import  { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import Menu from './pages/Menu';
+import Header from './pages/User';
+
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
   const handleLogin = (username) => {
-    console.log("Handling login for user:", username);
+    setUser(username);
   };
+
   return (
     <Router>
+       {user && <Header user={user} />}
       <Routes>
-        <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={user ? <Menu /> : <LoginPage onLogin={handleLogin} />} />
+        
       </Routes>
     </Router>
   );
