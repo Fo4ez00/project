@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Login.css";
+import "../styles/Login.css";
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -14,7 +14,11 @@ const LoginPage = ({ onLogin }) => {
     <div>
       <header>
         <h1>PIZZA DAY</h1>
-        <input type="search" className="search-input" placeholder="Search..." />
+        <input
+          type="search"
+          className="search-input_Menu"
+          placeholder="Search..."
+        />
       </header>
       <main>
         <h2>The Best Pizza</h2>

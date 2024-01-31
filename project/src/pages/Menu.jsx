@@ -1,48 +1,47 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSuccess, fetchError } from "./MenuSlice";
+import { fetchMenuData } from "./MenuSlice";
+import "../styles/Menu.css";
 
 const Menu = () => {
   const dispatch = useDispatch();
-  const { menuData, error } = useSelector((state) => state.menu);
+  const { menuData, error, status } = useSelector((state) => state.menu);
 
   useEffect(() => {
-    const fetchMenuData = async () => {
-      try {
-        const response = await fetch(
-          "https://react-fast-pizza-api.onrender.com/api/menu"
-        );
-        if (!response.ok) {
-          throw new Error("Ошибка");
-        }
-
-        const data = await response.json();
-        console.log("API ответ:", data);
-        dispatch(fetchSuccess(data));
-      } catch (error) {
-        dispatch(fetchError(error.message));
-      }
-    };
-
-    fetchMenuData();
+    dispatch(fetchMenuData());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log("Data:", menuData);
-  }, [menuData, error]);
+  // useEffect(() => {
+  //   console.log("Status:", status);
+  //   console.log("Error:", error);
+  //   console.log("Data:", menuData);
+  // }, [status, menuData, error]);
 
   return (
     <div>
       <h2>Menu</h2>
-      <ul>
-        {menuData.map((item) => (
-          <li key={item.id}>
-            <img src={item.imageUrl} alt={item.name} />
-            <p>{item.name}</p>
-            <p>{item.unitPrice}</p>
-          </li>
-        ))}
-      </ul>
+      {status === "loading" && <p>Loading...</p>}
+      {status === "failed" && <p>Error: {error}</p>}
+      {status === "succeeded" &&
+      menuData &&
+      menuData.data &&
+      menuData.data.length > 0 ? (
+        <ul>
+          {menuData.data.map((item) => (
+            <li key={item.id}>
+              <img src={item.imageUrl} alt={item.name} />
+              <div>
+                <p>{item.name}</p>
+                <p>Ingredients: {item.ingredients.join(", ")}</p>
+                <p>Price: {item.unitPrice}</p>
+                {item.soldOut ? <p>Sold Out</p> : <button>Add to Cart</button>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No menu data </p>
+      )}
     </div>
   );
 };
