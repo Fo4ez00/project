@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMenuData } from "./MenuSlice";
 import "../styles/Menu.css";
+import { addItem } from "./CartSlice";
+
+
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -10,6 +13,11 @@ const Menu = () => {
   useEffect(() => {
     dispatch(fetchMenuData());
   }, [dispatch]);
+
+  const handleAddToCart = (item) => {
+    console.log('Adding to cart:', item); 
+    dispatch(addItem({ item }));
+  };
 
   // useEffect(() => {
   //   console.log("Status:", status);
@@ -34,7 +42,7 @@ const Menu = () => {
                 <p>{item.name}</p>
                 <p>Ingredients: {item.ingredients.join(", ")}</p>
                 <p>Price: {item.unitPrice}</p>
-                {item.soldOut ? <p>Sold Out</p> : <button>Add to Cart</button>}
+                {item.soldOut ? <p>Sold Out</p> : <button onClick={() => handleAddToCart(item)}>Add to Cart</button>}
               </div>
             </li>
           ))}
