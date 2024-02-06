@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import LoginPage from './pages/LoginPage';
 import Menu from './pages/Menu';
 import Header from './pages/User';
-import Cart from './components/Cart';
+import Cart from './pages/Cart';
 
 
 

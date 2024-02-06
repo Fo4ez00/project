@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMenuData } from "./MenuSlice";
+import { fetchMenuData } from "../slice/MenuSlice";
 import "../styles/Menu.css";
-import { addItem } from "./CartSlice";
+import { addItem } from "../slice/CartSlice";
 
 
 
@@ -15,9 +15,10 @@ const Menu = () => {
   }, [dispatch]);
 
   const handleAddToCart = (item) => {
+    const { id, name, imageUrl, unitPrice } = item;
     console.log('Adding to cart:', item); 
-    dispatch(addItem({ item }));
-  };
+    dispatch(addItem({ id, name, imageUrl, unitPrice }));
+};
 
   // useEffect(() => {
   //   console.log("Status:", status);
