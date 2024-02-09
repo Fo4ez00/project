@@ -18,12 +18,6 @@ export const fetchCartItemsAsync = createAsyncThunk(
   }
 );
 
-export const removeItemAsyncAction = createAsyncThunk(
-  "cart/removeItem",
-  async (itemId) => {
-    return itemId;
-  }
-);
 const initialState = {
   items: [],
   status: "idle",
